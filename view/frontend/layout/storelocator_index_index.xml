@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * storelocator_index_index
+ *
+ * @copyright Copyright © 2018 Tan SEZER. All rights reserved.
+ * @author    tnsezer@gmail.com
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title translate="true">Store Locator</title>
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js" src_type="url"/>
+        <css src="Magentan_StoreLocator::css/storelocator.css" />
+        <css src="Magentan_StoreLocator::css/all.min.css" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magentan\StoreLocator\Block\Map\Search" name="storelocator.search" template="Magentan_StoreLocator::search.phtml" />
+            <block class="Magentan\StoreLocator\Block\Map\Google" name="storelocator.map" template="Magentan_StoreLocator::map.phtml" />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,101 @@
+<?php
+/**
+ * map
+ *
+ * @copyright Copyright © 2018 Tan SEZER. All rights reserved.
+ * @author    tnsezer@gmail.com
+ */
+
+$config = $block->getSettings();
+?>
+<div class="clear"></div>
+<div class="storelocator-map_content"
+     data-mage-init='{
+         "storeLocatorJs": {
+             "key": "<?php echo $block->getApi(); ?>",
+             "lat":"<?php echo $config['lat'] ?>",
+             "lng":"<?php echo $config['lng'] ?>",
+             "zoom":"<?php echo $config['zoom'] ?>",
+             "language": "<?php echo $block->getLocaleCode() ?>",
+             "stores":<?php echo $block->getStores(true) ?>
+         }
+     }'>
+    <div id="store_list">
+        <?php foreach ($block->getStores() as $stores):  ?>
+            <div id="store-list-map" class="stores store_<?php echo $stores->getId() ?>">
+                <span class="store" name="leftLocation" data-mid="<?php echo $stores->getId() ?>">
+                    <span class="info" onclick="focusMarker(<?php echo $stores->getId() ?>);">
+                    <div id="store-title" class="storelocator_header"><?php echo $stores->getName() ?></div> <br>
+                    <?php if($stores->getAddress() != null): ?>
+                    <strong><?php echo __('Address') ?>:</strong> <?php echo $stores->getAddress() ?> <br>
+                    <?php endif; ?>
+                    <?php echo $stores->getCity() ?>/<?php echo $block->getCountryNameByCode($stores->getCountry()); ?> <br>
+                    <?php if($stores->getZip() != null): ?>
+                        <strong><?php echo __('Zip') ?>:</strong> <?php echo $stores->getZip() ?> <br>
+                    <?php endif; ?>
+                    <?php if($stores->getPhone() != null): ?>
+                        <strong><?php echo __('Phone') ?>:</strong> <?php echo $stores->getPhone() ?> <br>
+                    <?php endif; ?>
+                    <?php if($stores->getEmail() != null): ?>
+                        <strong><?php echo __('Email') ?>:</strong> <?php echo $stores->getEmail() ?> <br>
+                    <?php endif; ?>
+                    <?php if($stores->getWebsite() != null): ?>
+                        <strong><?php echo __('Website') ?>:</strong> <?php echo $stores->getWebsite() ?> <br>
+                    <?php endif; ?>
+                    </span>
+                    <br>
+                    <p class="actions">
+                        <button class="action secondary direction" type="button">
+                            <span><?php echo __('direction') ?></span>
+                        </button>
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <button class="action secondary street-view" data-lat="<?php echo $stores->getPosition()['lat'] ?>" data-lng="<?php echo $stores->getPosition()['lng'] ?>" type="button">
+                            <span><?php echo __('street view') ?></span>
+                        </button>
+                    </p>
+                    <div class="direction-popup">
+                        <ul class="travel-list">
+                            <li class="travel car travel-active" travel-data="DRIVING" title="<?php echo __('Driving') ?>">
+                                <i class="fa fa-car" aria-hidden="true"></i>
+                            </li>
+                            <li class="travel bus" travel-data="TRANSIT" title="<?php echo __('Transit') ?>">
+                                <i class="fa fa-subway" aria-hidden="true"></i>
+                            </li>
+                            <li class="travel walk" travel-data="WALKING" title="<?php echo __('Walking') ?>">
+                                <i class="fa fa-male" aria-hidden="true"></i>
+                            </li>
+                            <li class="travel bicycle" travel-data="BICYCLING" title="<?php echo __('bicycling') ?>">
+                                <i class="fa fa-bicycle" aria-hidden="true"></i>
+                            </li>
+                        </ul>
+                        <div id="directions-<?php echo $stores->getId() ?>" class="directions-box">
+                            <div class="widget-directions-searchbox-handle">
+                                <div class="widget-directions-icon waypoint-handle"></div>
+                                <div class="widget-directions-icon waypoint-to"></div>
+                                <div class="widget-directions-icon waypoint-bullet"></div>
+                            </div>
+                            <div class="form-inputs">
+                                <input class="input-text start location" type="text"  autocomplete="off" placeholder="Enter a location">
+                                <input type="hidden" class="transport" value="DRIVING" />
+                                <input class="input-text end" readonly="true" type="text" autocomplete="off" value="<?php echo $stores->getAddress() ?>, <?php echo $stores->getCity() ?>, <?php echo $stores->getCountry() ?>">
+                            </div>
+                            <div class="directions-panel" style="direction: ltr;">
+
+                            </div>
+                        </div>
+
+                        <div class="box-input col-xs-12">
+                            <button class="action primary pull-right" onclick="calculateAndDisplayRoute(<?php echo $stores->getId() ?>, '<?php echo $stores->getPosition()['lat'] ?>','<?php echo $stores->getPosition()['lng'] ?>')" title="Get Directions" type="button">
+                                <span><?php echo __('Go') ?></span>
+                            </button>
+                        </div>
+                    </div>
+
+                </span>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <div id="map"></div>
+</div>

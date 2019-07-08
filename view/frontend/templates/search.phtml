@@ -1,0 +1,96 @@
+<?php
+/**
+ * search
+ *
+ * @copyright Copyright © 2018 Tan SEZER. All rights reserved.
+ * @author    tnsezer@gmail.com
+ */
+
+$countries = $block->getCountries();
+?>
+
+<div class="storelocator-search_content">
+    <form id="storelocator-form" method="post">
+        <div class="box">
+            <fieldset class="fieldset">
+                <!--
+                <div class="field field-name-location">
+                    <label class="label" for="location"><span><?php echo __('Location') ?></span></label>
+                    <div class="control">
+                        <input type="text" id="location" class="input-text" /><br />
+                        <a onclick="getLocation()"><?php echo __('current location') ?></a>
+                        <input type="hidden" id="location_lat" />
+                        <input type="hidden" id="location_lng" />
+                    </div>
+                </div>
+                <div class="field field-name-transport">
+                    <label class="label" for="transport"><span><?php echo __('Route') ?></span></label>
+                    <div class="control">
+                        <select class="form-control" id="transport">
+                            <option value="DRIVING"><?php echo __('Driving') ?></option>
+                            <option value="TRANSIT"><?php echo __('Transit') ?></option>
+                            <option value="WALKING"><?php echo __('Walking') ?></option>
+                            <option value="BICYCLING"><?php echo __('Bicycling') ?></option>
+                        </select>
+                    </div>
+                </div>
+                -->
+
+                <div class="field field-name-storename">
+                    <label class="label" for="storename"><span><?php echo __('Store Name') ?></span></label>
+                    <div class="control">
+                        <input type="text" id="storename" class="input-text" />
+                    </div>
+                </div>
+                <div class="field field-name-zipcode">
+                    <label class="label" for="zipcode"><span><?php echo __('Zip Code') ?></span></label>
+                    <div class="control">
+                        <input type="text" id="zipcode" class="input-text" />
+                    </div>
+                </div>
+
+                <div class="actions-toolbar">
+                    <div class="primary"><button type="submit" class="action login primary"><span><?php echo __('Search') ?></span></button></div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="box">
+        <fieldset class="fieldset">
+            <div class="field field-name-country">
+                <label class="label" for="country"><span><?php echo __('Country') ?></span></label>
+                <div class="control">
+                    <select class="form-control" id="country">
+                        <option value=""><?php echo __('Everywhere') ?></option>
+                        <?php foreach ($countries as $country): ?>
+                            <option value="<?php echo $country->getCountry(); ?>"><?php echo $block->getCountryNameByCode($country->getCountry()); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="field field-name-city">
+                <label class="label" for="city"><span><?php echo __('City') ?></span></label>
+                <div class="control">
+                    <input type="text" id="city" class="input-text" />
+                </div>
+            </div>
+            <div class="field field-name-radius">
+                <label class="label" for="radius"><span><?php echo __('Radius') ?></span></label>
+                <div class="control">
+                    <select class="form-control" id="radius">
+                        <option value=""><?php echo __('Everywhere') ?></option>
+                        <option value="1">1</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="500">500</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+        </div>
+    </form>
+</div>

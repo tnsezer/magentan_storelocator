@@ -1,0 +1,22 @@
+/* Set the size of the div element that contains the map */
+#map {
+    height: 600px;  /* The height is 400 pixels */
+    width: 100%;  /* The width is the width of the web page */
+}
+#pac-input{
+    width: 400px;
+    padding: 5px;
+    margin-top: 28px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 99;
+    position: relative;
+    left: 5px;
+    top: 38px;
+}
+.admin__menu .item-storelocator > a:before {
+    content: url(../images/location.png) !important;
+    font-size: 2.4rem!important;
+    position: relative!important;
+    top: -0.2rem!important;
+}

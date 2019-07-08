@@ -1,0 +1,13 @@
+{
+    "name": "magentan/store-locator",
+    "description": "Magentan Store locator module",
+    "type": "magento2-module",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magentan\\StoreLocator\\": ""
+        }
+    }
+}

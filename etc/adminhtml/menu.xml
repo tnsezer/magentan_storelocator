@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magentan_StoreLocator::storelocator" title="Store Locator" translate="title"
+                module="Magentan_StoreLocator"
+                action="storelocator/index"
+                sortOrder="60"
+                resource="Magentan_StoreLocator::storelocator" />
+    </menu>
+</config>

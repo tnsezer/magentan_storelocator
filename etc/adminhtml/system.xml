@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * system
+ *
+ * @copyright Copyright © 2018 Tan SEZER. All rights reserved.
+ * @author    tnsezer@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magentan_tab" translate="label" sortOrder="999">
+            <label>Magentan</label>
+        </tab>
+        <section id="storelocator" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Storelocator</label>
+            <tab>magentan_tab</tab>
+            <resource>Magento_Config::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <frontend_class>required-entry</frontend_class>
+                </field>
+                <field id="url" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Url</label>
+                    <frontend_class>required-entry</frontend_class>
+                </field>
+                <field id="status" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Status</label>
+                    <options>
+                        <option label="Disabled">0</option>
+                        <option label="Top Menu">1</option>
+                    </options>
+                </field>
+            </group>
+            <group id="geoapi" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Geo Api</label>
+                <field id="google_api" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Api</label>
+                    <comment><![CDATA[<a target="_blank" href="https://developers.google.com/maps/documentation/javascript/get-api-key">Get Key!</a>]]></comment>
+                    <frontend_class>required-entry</frontend_class>
+                </field>
+                <field id="lat" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Lat</label>
+                </field>
+                <field id="lng" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Lng</label>
+                </field>
+                <field id="zoom" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Zoom</label>
+                    <comment>default zoom level [4-16]</comment>
+                    <validate>validate-digits-range digits-range-4-16</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

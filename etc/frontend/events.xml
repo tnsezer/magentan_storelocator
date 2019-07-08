@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * events
+ *
+ * @copyright Copyright © 2018 Tan SEZER. All rights reserved.
+ * @author    tnsezer@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="page_block_html_topmenu_gethtml_before">
+        <observer name="storelocator_topmenu" instance="Magentan\StoreLocator\Observer\Topmenu" />
+    </event>
+</config>

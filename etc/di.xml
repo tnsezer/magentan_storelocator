@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<virtualType name="Magentan\StoreLocator\Model\ResourceModel\StoreLocator\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <arguments>
+        <argument name="mainTable" xsi:type="string">store_locator</argument>
+        <argument name="resourceModel" xsi:type="string">Magentan\StoreLocator\Model\ResourceModel\StoreLocator\Collection</argument>
+    </arguments>
+</virtualType>
+<virtualType name="Magentan\StoreLocator\Model\CollectionFactory" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+    <arguments>
+        <argument name="collection" xsi:type="object" shared="false">Magentan\StoreLocator\Model\ResourceModel\StoreLocator\Collection</argument>
+    </arguments>
+</virtualType>
+<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+    <arguments>
+        <argument name="collections" xsi:type="array">
+            <item name="storelocator_listing_data_source" xsi:type="string">Magentan\StoreLocator\Model\ResourceModel\StoreLocator\Grid\Collection</item>
+            <item name="storelocator_create_data_source" xsi:type="string">Magentan\StoreLocator\Model\ResourceModel\StoreLocator\Grid\Collection</item>
+        </argument>
+    </arguments>
+</type>
+<type name="Magentan\StoreLocator\Model\ResourceModel\StoreLocator\Collection">
+    <arguments>
+        <argument name="resourceModel" xsi:type="string">Magentan\StoreLocator\Model\ResourceModel\StoreLocator</argument>
+    </arguments>
+</type>
+<preference for="Magentan\StoreLocator\Api\StoreLocatorRepositoryInterface" type="Magentan\StoreLocator\Model\StoreLocatorRepository"/>
+<preference for="Magentan\StoreLocator\Api\Data\StoreLocatorInterface" type="Magentan\StoreLocator\Model\StoreLocator"/>
+<preference for="Magentan\StoreLocator\Api\Data\StoreLocatorSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+</config>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * config
+ *
+ * @copyright Copyright © 2018 Tan SEZER. All rights reserved.
+ * @author    tnsezer@gmail.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <storelocator>
+            <general>
+                <title>Store Locator</title>
+                <url>storelocator</url>
+                <status>1</status>
+            </general>
+            <geoapi>
+                <google_api></google_api>
+                <lat>54.5259614</lat>
+                <lng>15.255118700000025</lng>
+                <zoom>4</zoom>
+            </geoapi>
+        </storelocator>
+    </default>
+</config>
